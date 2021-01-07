@@ -1,9 +1,17 @@
+import heapq
+
 def solution(priorities, location):
-    tmp = []
-    # for i, item in enumerate(priorities):
-    #     for j in range(i,len(priorities)):
-    #
-    # return
+    heap = []
+    answer = 1
+    for item in priorities:
+        heapq.heappush(heap, (-item))
+    while heap:
+        for i in range(len(priorities)):
+            if priorities[i] == -heap[0]:
+                if i == location:
+                    return answer
+                heapq.heappop(heap)
+                answer += 1
 
 
-print(solution([2, 1, 3, 2], 2))
+print(solution([1, 1, 9, 1, 1, 1], 0))
