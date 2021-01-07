@@ -1,8 +1,8 @@
 def solution(skill, skill_trees):
     answer = 0
     skill_list = list(skill)
-    for i in skill_trees:
-        lists = list(reversed(list(i)))
+    for skill_item in skill_trees:
+        lists = list(reversed(skill_item))
         correct = 0
         flag = False
         while len(lists) >= 0:
@@ -10,7 +10,7 @@ def solution(skill, skill_trees):
                 flag = True
                 break
             item = lists.pop()
-            if skill_list.__contains__(item):
+            if item in skill_list:
                 if skill_list[correct] == item:
                     correct += 1
                 else:

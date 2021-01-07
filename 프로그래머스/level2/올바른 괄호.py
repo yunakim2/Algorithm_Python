@@ -1,18 +1,15 @@
 def solution(s):
-    temp = []
-    for i in s:
-        if i == '(':
-            temp.append(i)
+    stack = []
+    for bracket in s:
+        if bracket == '(':
+            stack.append(bracket)
         else:
-            if len(temp) >= 1 and temp[-1] == '(':
-                temp.pop()
+            if len(stack) >= 1 and stack[-1] == '(':
+                stack.pop()
             else:
                 return False
 
-    if len(temp) == 0:
-        return True
-    else:
-        return False
+    return len(stack) == 0
 
 
 print(solution("))))()"))
