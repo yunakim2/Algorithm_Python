@@ -20,4 +20,4 @@ def solution(n, m, image):
     return answer
 
 
-print(solution(3, 2, [[1, 2], [1, 2], [4, 5]]))
+print(solution(2, 2, [[1, 1], [1, 1]]))
