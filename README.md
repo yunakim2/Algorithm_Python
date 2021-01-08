@@ -31,8 +31,9 @@
 
 
 
-> 파이썬 기본 정리
+> 파이썬 기본 문법 정리
 
+[파이썬 기본 문법 정리](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95%20%EC%A0%95%EB%A6%AC.md)
 
 
 > 문자열 메소드
