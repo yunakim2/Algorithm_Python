@@ -11,10 +11,11 @@ def solution(n, m, image):
                 if 0 <= new_x < n and 0 <= new_y < m:
                     if not check[new_x][new_y]:
                         check[new_x][new_y] = 1
-                        if image[i][j] == image[new_x][new_y] and not check[i][j]:
+                        if image[i][j] == image[new_x][new_y] and check[new_x][new_y]:
                             break
             else:
                 answer += 1
+                # print("answer::", answer, "item::", image[i][j])
 
     return answer
 
