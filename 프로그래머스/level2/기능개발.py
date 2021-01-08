@@ -1,5 +1,7 @@
 from collections import Counter
 import math
+
+
 def solution(progresses, speeds):
     answer = []
     queue = []
@@ -19,4 +21,4 @@ def solution(progresses, speeds):
     return answer
 
 
-print(solution(	[93, 30, 55],  [1, 30, 5]))
+print(solution([93, 30, 55], [1, 30, 5]))
