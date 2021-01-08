@@ -1,11 +1,10 @@
 from collections import Counter
-
-
+import math
 def solution(progresses, speeds):
     answer = []
     queue = []
     for progress, speed in zip(progresses, speeds):
-        queue.append((100 - progress) // speed)
+        queue.append(math.ceil((100 - progress) / speed))
 
     i = 0
     for j in range(1, len(queue)):
