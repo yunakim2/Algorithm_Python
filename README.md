@@ -31,11 +31,27 @@
 2️⃣ [2. 그리디 & 구현 ](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%ED%84%B0%EB%94%94/%EB%8F%99%EB%B9%88%EB%82%98_%EC%9D%B4%EC%BD%94%ED%85%8C_2%EA%B0%95.md)
 
 
+> 자료구조
+
+[큐(Queue)](https://yunaaaas.tistory.com/29?category=966971)
+
+[힙(Heap)](https://yunaaaas.tistory.com/36?category=966971)
 
 > 파이썬 기본 문법 정리
 
 [파이썬 기본 문법 정리](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95%20%EC%A0%95%EB%A6%AC.md)
 
+[딕셔너리 총 정리](https://yunaaaas.tistory.com/2?category=966971)
+
+[튜플 총 정리](https://yunaaaas.tistory.com/3?category=966971)
+
+[리스트 총 정리](https://yunaaaas.tistory.com/4?category=966971)
+
+[리스트와 딕셔너리의 정렬](https://yunaaaas.tistory.com/5?category=966971)
+
+> 파이썬을 파이썬 답게
+
+[파이썬을 파이썬 답게 정리](https://yunaaaas.tistory.com/8?category=966971)
 
 > 문자열 메소드
 
