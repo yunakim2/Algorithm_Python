@@ -28,14 +28,14 @@ class MyQueue(object):
         return True
 
     def pop(self):
-        try:
+        if self.qsize() > 0:
             if self.stack2.size() == 0:
                 while self.stack1.size() > 0:
                     self.stack2.push(self.stack1.pop())
-            result = self.stack2.pop()
-        except IndexError:
-            return False
-        return result
+                return self.stack2.pop()
+            elif self.stack2.size() != 0:
+                return self.stack2.pop()
+        return False
 
 
 n, max_size = map(int, input().strip().split(' '))

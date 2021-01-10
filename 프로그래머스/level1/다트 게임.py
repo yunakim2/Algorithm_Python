@@ -8,7 +8,7 @@ def solution(dartResult):
     while len(dart) > 0:
         item = dart.pop()
         if item != 'S' and item != 'D' and item != 'T' and item != '*' and item != '#':
-            reitem = dart.pop()
+            reitem = dart.pop
             if  reitem!= 'S' and reitem != 'D' and reitem != 'T' and reitem != '*' and reitem != '#':
                 num = int(item+reitem)
             else:
@@ -25,7 +25,7 @@ def solution(dartResult):
                     num = num ** 3
 
                 if len(dart) > 0:
-                    mode = dart.pop()
+                    mode = dart.pop
                     if mode == '*' or mode == '#':
                         if mode == '*':
                             num = num * 2

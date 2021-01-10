@@ -3,22 +3,17 @@ import math
 
 
 def solution(progresses, speeds):
-    answer = []
     queue = []
     for progress, speed in zip(progresses, speeds):
         queue.append(math.ceil((100 - progress) / speed))
 
-    i = 0
-    for j in range(1, len(queue)):
-        if queue[j] < queue[i]:
-            queue[j] = queue[i]
-        i += 1
+    for i, item in enumerate(queue):
+        if i != 0:
+            if item < queue[i-1]:
+                queue[i] = queue[i-1]
 
-    count = Counter(queue).items()
-    for item in count:
-        answer.append(item[1])
-
-    return answer
+    return list(Counter(queue).values())
 
 
-print(solution([93, 30, 55], [1, 30, 5]))
+if __name__ == '__main__':
+    print(solution([93, 30, 55], [1, 30, 5]))
