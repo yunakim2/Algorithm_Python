@@ -1,12 +1,18 @@
 from collections import Counter
+import heapq
+
+
 def solution(healths, items):
     answer = []
     power = 0
-    for health in healths:
+    heapq.heapify(healths)
+    print(healths)
+    while healths:
+        health = heapq.heappop(healths)
         for i, item in enumerate(items):
             if health - item[1] >= 100:
                 tmp_power = item[0] + power
-                if tmp_power > power:
+                if tmp_power >= power:
                     power = tmp_power
                     answer.append(i + 1)
 
