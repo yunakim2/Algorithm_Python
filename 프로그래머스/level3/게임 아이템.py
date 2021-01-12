@@ -1,22 +1,26 @@
-from collections import Counter
 import heapq
+from collections import deque
 
 
 def solution(healths, items):
+    healths.sort()
+    items = [(*item, idx) for idx, item in enumerate(items, 1)]
+    BUFF, DEBUFF, INDEX = 0, 1, 2
+    items.sort(key=lambda x: x[DEBUFF])
+    items = deque(items)
+    candidates = []
     answer = []
-    power = 0
-    heapq.heapify(healths)
-    print(healths)
-    while healths:
-        health = heapq.heappop(healths)
-        for i, item in enumerate(items):
-            if health - item[1] >= 100:
-                tmp_power = item[0] + power
-                if tmp_power >= power:
-                    power = tmp_power
-                    answer.append(i + 1)
 
-    return sorted(Counter(answer).keys())
+    for health in healths:
+        while items and health - items[0][DEBUFF] >= 100:
+            item = items.popleft()
+            heapq.heappush(candidates, (-item[BUFF], item[INDEX]))
+
+        if candidates:
+            answer.append(heapq.heappop(candidates)[1])
+
+    answer.sort()
+    return answer
 
 
 if __name__ == '__main__':

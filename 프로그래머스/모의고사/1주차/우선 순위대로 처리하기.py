@@ -1,27 +1,35 @@
 from collections import deque
+import heapq
 
 
 def solution(reqs):
     answer = []
-    items = deque()
-    for i, item in enumerate(reqs):
-        items.append([i, item])
-    queue = [items.popleft()]
-    timer = 0
-    while queue:
-        if len(queue) != 0:
-            queue.sort(key=lambda x: x[1][0])
-            item = queue.pop()
+    queue = deque([(*req, idx) for idx, req in enumerate(reqs, 1)])
+    heap = []
+    RANK, TIME , IDX = 0,1,2
+    item = queue.popleft()
+    heapq.heappush(heap, (-item[RANK], item[IDX]))
+    time = 0
 
-        for _ in range(item[1][1]):
-            timer += 1
-            if timer % 3 == 0:
-                if items:
-                    queue.append(items.popleft())
-        else:
-            answer.append(item[0] + 1)
-            if len(queue) == 0:
-                if len(items) != 0:
-                    queue.append(items.popleft())
+    while heap:
+        work = heapq.heappop(heap)
+        index = work[1]-1
+        timer = reqs[index][1]
+        answer.append(index+1)
+        for _ in range(timer):
+            time += 1
+            if time % 3 == 0 :
+                if queue:
+                    item = queue.popleft()
+                    heapq.heappush(heap,(-item[RANK], item[IDX]))
+        if not heap:
+            if queue:
+                item = queue.popleft()
+                heapq.heappush(heap,(-item[RANK], item[IDX]))
 
     return answer
+
+
+if __name__ == "__main__":
+    print(solution([[1, 7], [4, 1], [5, 2], [3, 1], [7, 2]]))
+    print(solution([[3, 7], [8, 7], [29, 6], [6, 7], [2, 2], [19, 10]]))

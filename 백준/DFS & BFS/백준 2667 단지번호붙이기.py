@@ -12,7 +12,7 @@ def bfs(x, y):
             new_x = int(item[0] + xy[0])
             new_y = int(item[1] + xy[1])
             if 0 <= new_x < n and 0 <= new_y < n and check[new_x][new_y] != 1:
-                if map[new_x][new_y] == map[item[0]][item[1]]:
+                if maps[new_x][new_y] == maps[item[0]][item[1]]:
                     queue.append((new_x, new_y))
                     check[new_x][new_y] = 1
                     size += 1
@@ -22,16 +22,16 @@ def bfs(x, y):
 
 answer = []
 n = int(input())
-map = []
+maps = []
 check = [[0 for _ in range(n)] for _ in range(n)]
 for _ in range(n):
     tmp_map = list(sys.stdin.readline())
     tmp_map.remove('\n')
-    map.append(tmp_map)
+    maps.append(tmp_map)
 
 for i in range(n):
     for j in range(n):
-        if map[i][j] != '0':
+        if maps[i][j] != '0':
             if check[i][j] != 1:
                 answer.append(bfs(i, j))
 
