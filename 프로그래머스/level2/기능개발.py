@@ -4,7 +4,10 @@ import math
 
 def solution(progresses, speeds):
     queue = []
-    for progress, speed in zip(progresses, speeds):
+    zipped = list(zip(progresses,speeds))
+    for i in range(len(zipped)):
+        progress= zipped[i][0]
+        speed = zipped[i][1]
         queue.append(math.ceil((100 - progress) / speed))
 
     for i, item in enumerate(queue):

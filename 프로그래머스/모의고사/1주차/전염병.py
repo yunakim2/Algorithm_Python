@@ -1,3 +1,4 @@
+'''다시'''
 def solution(m, n, infests, vaccinateds):
     answer = 0
     check = [[ 0 for _ in range(n)] for _ in range(m)]
