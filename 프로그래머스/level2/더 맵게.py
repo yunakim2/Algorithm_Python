@@ -6,9 +6,9 @@ def solution(scoville, K):
     heapq.heapify(scoville)
 
     while len(scoville) > 1 and scoville[0] < K:
-        num = heapq.heappop(scoville) + (heapq.heappop(scoville) * 2)
+        mixed = heapq.heappop(scoville) + (heapq.heappop(scoville) * 2)
         answer += 1
-        heapq.heappush(scoville, num)
+        heapq.heappush(scoville, mixed)
 
     if len(scoville) == 1 and scoville[0] < K:
         return -1

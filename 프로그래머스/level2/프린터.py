@@ -1,17 +1,13 @@
-import heapq
-
 def solution(priorities, location):
-    heap = []
     answer = 1
-    for item in priorities:
-        heapq.heappush(heap, (-item))
-    while heap:
+    lists = priorities[::]
+    lists.sort()
+    while lists:
         for i in range(len(priorities)):
-            if priorities[i] == -heap[0]:
+            if priorities[i] == lists[-1]:
                 if i == location:
                     return answer
-                heapq.heappop(heap)
+                lists.pop()
                 answer += 1
 
 
-print(solution([1, 1, 9, 1, 1, 1], 0))
