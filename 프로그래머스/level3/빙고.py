@@ -3,42 +3,24 @@ def solution(board, nums):
     set_num = set(nums)
     N = len(board)
 
-    def check_bingo(check_bg):
-        return len(check_bg) == N
-
-    # 가로 빙고 검사
     for i in range(N):
-        check_bg = []
+        horizontal_bg = 0
+        vertical_bg = 0
         for j in range(N):
             if board[i][j] in set_num:
-                check_bg.append(True)
-        if check_bingo(check_bg):
-            answer += 1
-
-    # 세로 빙고 검사
-    for i in range(N):
-        check_bg = []
-        for j in range(N):
+                horizontal_bg += 1
             if board[j][i] in set_num:
-                check_bg.append(True)
-        if check_bingo(check_bg):
-            answer += 1
+                vertical_bg += 1
+        answer += [horizontal_bg, vertical_bg].count(N)
 
-    check_bg = []
+    right_diagonal_bg = 0
+    left_diagonal_bg = 0
     for i in range(N):
         if board[i][i] in set_num:
-            check_bg.append(True)
-
-    if check_bingo(check_bg):
-        answer += 1
-
-    check_bg = []
-    for i in range(N - 1, -1, -1):
-        if board[N - i - 1][i] in set_num:
-            check_bg.append(True)
-
-    if check_bingo(check_bg):
-        answer += 1
+            left_diagonal_bg += 1
+        if board[i][N-i-1] in set_num:
+            right_diagonal_bg += 1
+    answer += [left_diagonal_bg, right_diagonal_bg].count(N)
 
     return answer
 

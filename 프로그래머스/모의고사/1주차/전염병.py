@@ -12,15 +12,14 @@ def solution(m, n, infests, vaccinateds):
         dxy = [(-1, 0), (1, 0), (0, 1), (0, -1)]
         count = answer
         while queue:
-            item = queue.popleft()
-            check[item[0]][item[1]] = True
-            count = item[2]
+            x, y, count = queue.popleft()
+            check[x][y] = True
             for dx, dy in dxy:
-                new_x = int(dx) + int(item[0])
-                new_y = int(dy) + int(item[1])
+                new_x = dx + x
+                new_y = dy + y
                 if available(new_x, new_y) and not check[new_x][new_y] and [new_x + 1, new_y + 1] not in vaccinateds:
                     check[new_x][new_y] = True
-                    queue.append([new_x,new_y, count+1])
+                    queue.append([new_x, new_y, count + 1])
                 if available(new_x, new_y) and not check[new_x][new_y] and [new_x + 1, new_y + 1] in vaccinateds:
                     check[new_x][new_y] = True
 
@@ -34,8 +33,7 @@ def solution(m, n, infests, vaccinateds):
         for check_item in check_row:
             if not check_item:
                 return -1
-    else:
-        return answer
+    return answer
 
 
 if __name__ == '__main__':
