@@ -1,7 +1,3 @@
-import collections
-import math
-
-
 def solution(max_weight, specs, names):
     weights = 0
     answer = 1
