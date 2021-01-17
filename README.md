@@ -33,9 +33,15 @@
 
 > 파이썬 스터디 정리
 
-1️⃣ [1.코딩테스트 출제 경향 분석 및 파이썬 문법 부수기](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%ED%84%B0%EB%94%94/%EB%8F%99%EB%B9%88%EB%82%98_%EC%9D%B4%EC%BD%94%ED%85%8C_1%EA%B0%95.md)
+1️⃣ [코딩테스트 출제 경향 분석 및 파이썬 문법 부수기](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%ED%84%B0%EB%94%94/%EB%8F%99%EB%B9%88%EB%82%98_%EC%9D%B4%EC%BD%94%ED%85%8C_1%EA%B0%95.md)
 
-2️⃣ [2. 그리디 & 구현 ](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%ED%84%B0%EB%94%94/%EB%8F%99%EB%B9%88%EB%82%98_%EC%9D%B4%EC%BD%94%ED%85%8C_2%EA%B0%95.md)
+2️⃣ [그리디 & 구현 ](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%ED%84%B0%EB%94%94/%EB%8F%99%EB%B9%88%EB%82%98_%EC%9D%B4%EC%BD%94%ED%85%8C_2%EA%B0%95.md)
+
+3️⃣ [DFS & BFS](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%ED%84%B0%EB%94%94/dfs:bfs.md)
+ 
++) [DFS & BFS 추가](https://github.com/yunakim2/Algorithm_Python/blob/master/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%8A%A4%ED%84%B0%EB%94%94/%EB%8F%99%EB%B9%88%EB%82%98_%EC%9D%B4%EC%BD%94%ED%85%8C_3%EA%B0%95.md)
+
+
 
 
 > 자료구조
