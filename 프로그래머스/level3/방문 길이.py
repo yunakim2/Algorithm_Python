@@ -6,13 +6,15 @@ def solution(dirs):
         dx, dy = move[direction]
         new_x, new_y = start[0] + dx, start[1] + dy
         if -5 <= new_x <= 5 and -5 <= new_y <= 5:
-            road = (start, (new_x, new_y))
-            if road not in new_road:
-                new_road.add(road)
+            road_bottom = (start, (new_x, new_y))
+            road_up = ((new_x, new_y), start)
+            new_road.add(road_bottom)
+            new_road.add(road_up)
             start = new_x, new_y
-    return len(new_road)
+    return len(new_road)//2
 
 
 if __name__ == "__main__":
     print(solution("ULURRDLLU"))
     print(solution("LULLLLLLU"))
+    print(solution("UD"))
