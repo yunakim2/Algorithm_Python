@@ -11,7 +11,7 @@ def solution(dirs):
             new_road.add(road_bottom)
             new_road.add(road_up)
             start = new_x, new_y
-    return len(new_road)//2
+    return len(new_road) // 2
 
 
 if __name__ == "__main__":
