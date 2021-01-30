@@ -1,5 +1,4 @@
 CONNECTED = 1
-
 # adjacency list를 만들어주는 함수.
 def build_adj_list(signs):
     n = len(signs)
@@ -10,27 +9,28 @@ def build_adj_list(signs):
                 answer[i].append(j)
     return answer
 
-def dfs(row,signs, adj_list):
-    if len(adj_list[row]) == len(signs):
-        return
-    for destination in adj_list[row] :
-        if signs[destination][row] == 1 and row not in adj_list[destination]:
-            adj_list[row].append(destination)
-            print(adj_list)
-            signs[row][destination] = 1
-            dfs(destination, signs, adj_list)
-
 
 def solution(n, signs):
     adj_list = build_adj_list(signs)
-    dfs(0, signs, adj_list)
+
+    def dfs(start_node, init_node, visited):
+        if start_node == init_node and False not in visited:
+            return
+        for destination in adj_list[start_node]:
+            if not visited[destination] :
+                signs[init_node][destination] = CONNECTED
+                visited[destination] = True
+                dfs(destination, init_node, visited)
+
+        return
+
+    for start_row in range(len(adj_list)):
+        visited = [False] * len(adj_list)
+        dfs(start_row, start_row, visited)
+
     return signs
 
 
-
-
-
 if __name__ == "__main__":
-    print(solution(3, [[0,1,0], [0, 0, 1], [1, 0, 0]]))
-    # print(solution(3, [[0, 0, 1], [0, 0, 1], [0, 1, 0]]))
-
+    print(solution(3, [[0, 1, 0], [0, 0, 1], [1, 0, 0]]))
+    print(solution(3, [[0, 0, 1], [0, 0, 1], [0, 1, 0]]))

@@ -1,17 +1,13 @@
 def solution(numbers):
-    answer = []
-    ans = ''
+    combi_number = []
+    bigger_number = ''
     for number in numbers:
-        tmp_number = [str(i) for i in str(number)]
-        while len(tmp_number) < 4:
-            for i in str(number):
-                tmp_number.append(i)
-            tmp_number = tmp_number[0:4]
-        answer.append([str(''.join(tmp_number)), number])
-    answer.sort(reverse=True)
-    for _, item in answer:
-        ans += str(item)
-    return str(0) if not int(ans) else ans
+        tmp_number = (str(number)*4)[:4]
+        combi_number.append([str(''.join(tmp_number)), number])
+    combi_number.sort(reverse=True)
+    for _, item in combi_number:
+        bigger_number += str(item)
+    return str(int(bigger_number))
 
 if __name__ == '__main__':
     print(solution([0,0,0,1000]))

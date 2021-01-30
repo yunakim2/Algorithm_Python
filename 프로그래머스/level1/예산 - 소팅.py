@@ -1,8 +1,8 @@
 def solution(d, budget):
-    d.sort()
+    d.sort(reverse=True)
     answer = 0
     while budget > 0 and d:
-        budget = budget - d.pop(0)
+        budget = budget - d.pop()
         if budget >= 0:
             answer += 1
     return answer
