@@ -3,7 +3,7 @@ def solution(numbers):
     bigger_number = ''
     for number in numbers:
         tmp_number = (str(number)*4)[:4]
-        combi_number.append([str(''.join(tmp_number)), number])
+        combi_number.append([''.join(tmp_number), number])
     combi_number.sort(reverse=True)
     for _, item in combi_number:
         bigger_number += str(item)
