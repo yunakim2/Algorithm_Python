@@ -1,11 +1,6 @@
 def solution(s):
     def is_palindrome(word):
-        if len(word) <= 1:
-            return True
-        if word[0] == word[-1]:
-            return is_palindrome(word[1:-1])
-        else:
-            return False
+        return word == word[::-1]
 
     for idx in range(len(s), 0, -1):
         for start in range(0, len(s)):
