@@ -1,56 +1,68 @@
 from collections import deque
 
+
 def check_board(borad):
-    visited_board = [[False for _ in range(col)] for _ in range(row)]
-    dxy = [(-1, 0), (1, 0), (0, 1), (0, -1)]
+    queue = deque()
+    tmp_board = [[0]*col for _ in range(row)]
+
     for i in range(row):
         for j in range(col):
+            tmp_board[i][j] = borad[i][j]
             if borad[i][j] == 2:
-                for dx, dy in dxy:
-                    nx, ny = i+dx, j+dy
-                    if 0<= nx <col and 0<= ny < col and not visited_board[nx][ny]:
-                        borad[dx][dy] = 2
-                        visited_board[dx][dy] = True
-            else:
-                visited_board[i][j] = True
-    cnt = 0
-    for i in range(row):
-        if visited_board[i] in False:
-            return 0
-        cnt += borad[i].count(0)
-    return cnt
+                queue.append((i, j))
 
-def bfs(x,y):
-    global ans
-    queue = deque()
-    queue.append((x,y))
-    visited[x][y] = True
+    dxy = [(-1, 0), (1, 0), (0, 1), (0, -1)]
 
     while queue:
-        x,y = queue.popleft()
-        for _ in range(2):
-            for i in range(row):
-                for j in range(col):
-                    nx,ny = x+i, y+j
-                    if 0 <= nx < row and 0 <= ny < col and not visited[nx][ny]:
-                        if board[nx][ny] == 1 or board[nx][ny] == 2:
-                            visited[nx][ny] = True
-                            continue
-                        queue.popleft((nx,ny))
-                        board[nx][ny] = 1
-                        visited[nx][ny] = True
-        ans = max(ans,check_board(board))
+        x, y = queue.popleft()
+        for dx, dy in dxy:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < row and 0 <= ny < col and tmp_board[nx][ny] == 0:
+                tmp_board[nx][ny] = 2
+                queue.append((nx,ny))
+
+    cnt = 0
+    for i in tmp_board:
+        cnt += i.count(0)
+
+    return cnt
 
 
+def bfs():
+    global ans
+    for i in range(row):
+        for j in range(col):
+            if board[i][j] != 0:
+                continue
+            for i2 in range(row):
+                for j2 in range(col):
+                    if board[i2][j2] != 0:
+                        continue
+                    for i3 in range(row):
+                        for j3 in range(col):
+                            if board[i3][j3] != 0:
+                                continue
+                            if i == i2 and j == j2:
+                                continue
+                            if i2 == i3 and j2 == j3:
+                                continue
+                            if i == i3 and j == j3:
+                                continue
+
+                            board[i][j] = 1
+                            board[i2][j2] = 1
+                            board[i3][j3] = 1
+                            ans = max(ans, check_board(board))
+                            board[i][j] = 0
+                            board[i2][j2] = 0
+                            board[i3][j3] = 0
 
 
 if __name__ == '__main__':
     row, col = map(int, input().split())
     board = []
-    visited = [[False for _ in range(col)] for _ in range(row)]
-    print(visited)
     for _ in range(row):
         board.append(list(map(int, input().split())))
     ans = 0
-    bfs(0,0)
+    bfs()
     print(ans)
