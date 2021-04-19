@@ -10,17 +10,18 @@ def dfs(idx):
         return
     if egg[idx][0] <= 0:
         return dfs(idx+1)
-
+    boolean = False
     for i in range(n):
         if i == idx:
             continue
         if egg[i][0] > 0:
+            boolean = True
             egg[i][0] -= egg[idx][1]
             egg[idx][0] -= egg[i][1]
             dfs(idx+1)
             egg[i][0] += egg[idx][1]
             egg[idx][0] += egg[i][1]
-    else:
+    if not boolean:
         dfs(idx+1)
 
     return
