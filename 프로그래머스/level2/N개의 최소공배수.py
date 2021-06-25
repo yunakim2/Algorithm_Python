@@ -1,16 +1,12 @@
+from math import gcd  # 최대공약수를 구하는 gcd() import
+'''
+최소 공배수 구하는 공식 최소공배수 = (x*y) / gcd(x,y)
+'''
 def solution(arr):
-    m_item = []
-    if arr[0] == 1:
-        m_item.append(arr[1])
-    else:
-        m_item.append(arr[2])
+    answer = arr[0]
+    for num in arr:
+        answer = answer * num // gcd(answer,num)
 
-    answer = 1 * m_item
-    for idx in arr:
-        for min_idx in m_item:
-            if idx == min_idx:
-                continue
-          
     return answer
 
 
