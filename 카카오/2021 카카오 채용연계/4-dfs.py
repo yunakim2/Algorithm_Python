@@ -11,9 +11,7 @@ def solution(n, start, end, roads, traps):
                 break
         else:
             return
-        print(start, end, time)
-        print(roads)
-        print('res - ', res)
+
         res.append(start)
         for road in roads:
             p, q, s = road[0], road[1], road[2]
@@ -24,7 +22,6 @@ def solution(n, start, end, roads, traps):
                             tmp = roads[i][0]
                             roads[i][0] = roads[i][1]
                             roads[i][1] = tmp
-                print('roadss - ', roads)
                 dfs(q,roads, time + s, res)
 
 
